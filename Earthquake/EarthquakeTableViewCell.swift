@@ -2,22 +2,28 @@
 //  EarthquakeTableViewCell.swift
 //  Earthquake
 //
-//  Created by Kasım Sağır on 7.03.2023.
+//  Created by Recep Uyduran on 7.03.2023.
 //
 
 import UIKit
-
+protocol EarthquakeTableViewCellDelegate: AnyObject {
+}
 class EarthquakeTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var yerLabel: UILabel!
+    @IBOutlet weak var tarihLabel: UILabel!
+    @IBOutlet weak var saatLabel: UILabel!
+    @IBOutlet weak var magnitudeLabel: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    weak var delegate : EarthquakeTableViewCellDelegate?
+    var cellIndex: Int = 0
 
-        // Configure the view for the selected state
+    func setCell(data: EarthquakeManagerData, delegate: EarthquakeTableViewCellDelegate, index: Int) {
+        yerLabel.text = data.yer
+        tarihLabel.text = data.tarih
+        saatLabel.text = data.saat
+        magnitudeLabel.text = data.mlString
+        self.delegate = delegate
+        cellIndex = index
     }
-    
 }
