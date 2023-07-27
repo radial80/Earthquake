@@ -6,14 +6,14 @@
 //
 
 import Foundation
-protocol EarthquakeManagerDelegate {
+protocol EarthquakeManagerDelegate: AnyObject {
     func didUpdateEarthquake(response: BaseData)
     func didFailWithError(error: Error)
 }
 
-struct EarthquakeManager {
+class EarthquakeManager {
     let baseURL = "http://hasanadiguzel.com.tr/api/sondepremler"
-    var delegate: EarthquakeManagerDelegate?
+    weak var delegate: EarthquakeManagerDelegate?
 
     func getEartquakes(){
         let urlString = "\(baseURL)"

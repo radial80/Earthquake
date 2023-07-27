@@ -9,7 +9,6 @@ import UIKit
 protocol EarthquakeTableViewCellDelegate: AnyObject {
 }
 class EarthquakeTableViewCell: UITableViewCell {
-
     @IBOutlet weak var yerLabel: UILabel!
     @IBOutlet weak var tarihLabel: UILabel!
     @IBOutlet weak var saatLabel: UILabel!

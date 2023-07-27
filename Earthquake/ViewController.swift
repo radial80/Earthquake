@@ -20,7 +20,5 @@ class ViewController: UIViewController {
         let secondWievController = self.storyboard?.instantiateViewController(withIdentifier: "EartquakeListVC") as! EartquakeListVC
         self.navigationController?.setViewControllers([secondWievController], animated: true)
     }
-
-
 }
 
