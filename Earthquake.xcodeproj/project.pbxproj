@@ -18,6 +18,7 @@
 		48C8BE4229B5FA9D008D5E2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48C8BE4129B5FA9D008D5E2C /* Assets.xcassets */; };
 		48C8BE4529B5FA9D008D5E2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48C8BE4329B5FA9D008D5E2C /* LaunchScreen.storyboard */; };
 		48C8BE4D29B60521008D5E2C /* EarthquakeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8BE4C29B60521008D5E2C /* EarthquakeListVC.swift */; };
+		CA95ED0BB9AA46ED478C3B56 /* Pods_Earthquake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F33C0A023A4048528BF19B4F /* Pods_Earthquake.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,9 @@
 		48C8BE4429B5FA9D008D5E2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48C8BE4629B5FA9D008D5E2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48C8BE4C29B60521008D5E2C /* EarthquakeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeListVC.swift; sourceTree = "<group>"; };
+		79937D9DCC23C8A09BE7AA6A /* Pods-Earthquake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthquake.release.xcconfig"; path = "Target Support Files/Pods-Earthquake/Pods-Earthquake.release.xcconfig"; sourceTree = "<group>"; };
+		E8F5EA06E37D7FD4FB201995 /* Pods-Earthquake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthquake.debug.xcconfig"; path = "Target Support Files/Pods-Earthquake/Pods-Earthquake.debug.xcconfig"; sourceTree = "<group>"; };
+		F33C0A023A4048528BF19B4F /* Pods_Earthquake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Earthquake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA95ED0BB9AA46ED478C3B56 /* Pods_Earthquake.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +57,8 @@
 			children = (
 				48C8BE3729B5FA9B008D5E2C /* Earthquake */,
 				48C8BE3629B5FA9B008D5E2C /* Products */,
+				D644B9F2834E42AC6F7529A3 /* Pods */,
+				B83A2DCE96D1158E2EDBE2B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +89,24 @@
 			path = Earthquake;
 			sourceTree = "<group>";
 		};
+		B83A2DCE96D1158E2EDBE2B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F33C0A023A4048528BF19B4F /* Pods_Earthquake.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D644B9F2834E42AC6F7529A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8F5EA06E37D7FD4FB201995 /* Pods-Earthquake.debug.xcconfig */,
+				79937D9DCC23C8A09BE7AA6A /* Pods-Earthquake.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,9 +114,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48C8BE4929B5FA9D008D5E2C /* Build configuration list for PBXNativeTarget "Earthquake" */;
 			buildPhases = (
+				20648A65A6239776A13491AE /* [CP] Check Pods Manifest.lock */,
 				48C8BE3129B5FA9B008D5E2C /* Sources */,
 				48C8BE3229B5FA9B008D5E2C /* Frameworks */,
 				48C8BE3329B5FA9B008D5E2C /* Resources */,
+				64A3D1E1D6515EF36B68B1DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +175,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20648A65A6239776A13491AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Earthquake-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64A3D1E1D6515EF36B68B1DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Earthquake/Pods-Earthquake-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Earthquake/Pods-Earthquake-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Earthquake/Pods-Earthquake-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		48C8BE3129B5FA9B008D5E2C /* Sources */ = {
@@ -302,6 +371,7 @@
 		};
 		48C8BE4A29B5FA9D008D5E2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8F5EA06E37D7FD4FB201995 /* Pods-Earthquake.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -330,6 +400,7 @@
 		};
 		48C8BE4B29B5FA9D008D5E2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79937D9DCC23C8A09BE7AA6A /* Pods-Earthquake.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

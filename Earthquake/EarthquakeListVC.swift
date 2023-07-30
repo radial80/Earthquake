@@ -7,8 +7,17 @@
 
 import Foundation
 import UIKit
+import GoogleMobileAds
 
 class EartquakeListVC: UIViewController, EarthquakeTableViewCellDelegate {
+    private let banner: GADBannerView = {
+        let banner = GADBannerView()
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.load(GADRequest())
+        banner.backgroundColor = .secondarySystemBackground
+        return banner
+    }()
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var isSearched = false
@@ -22,8 +31,11 @@ class EartquakeListVC: UIViewController, EarthquakeTableViewCellDelegate {
             }
         }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        banner.rootViewController = self
+        view.addSubview(banner)
 
         hideKeyboardWhenTappedAround()
         title = "Son Depremler"
@@ -35,10 +47,14 @@ class EartquakeListVC: UIViewController, EarthquakeTableViewCellDelegate {
         tableView.addSubview(refreshControl)
         tableView.keyboardDismissMode = .onDrag
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        banner.frame = CGRect(x: 0, y: view.frame.size.height-50, width: view.frame.size.width, height: 50).integral
+    }
+
     @objc func refresh(send: UIRefreshControl) {
         DispatchQueue.main.async {
             self.manager.getEartquakes()
-
         }
     }
 }
@@ -99,6 +115,7 @@ extension EartquakeListVC: UISearchBarDelegate{
         self.searchBar.endEditing(true)
         tableView.reloadData()
     }
+
 }
 
 //MARK: - SearchBar Keyboard Dismiss

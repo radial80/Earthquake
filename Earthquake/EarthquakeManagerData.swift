@@ -14,7 +14,7 @@ struct BaseData: Codable {
 struct EarthquakeManagerData: Codable {
     let tarih: String
     let saat: String
-    let ml: Double 
+    let ml: Double
     let yer: String
     var mlString: String {
         return String(format: "%.1f", ml)

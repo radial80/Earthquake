@@ -33,7 +33,7 @@ class EarthquakeManager {
     func parseJson(_ data: Data) -> BaseData? {
         let decoder = JSONDecoder()
         do {
-
+            
             let decodedData = try decoder.decode(BaseData.self, from: data)
             return decodedData
         } catch {
